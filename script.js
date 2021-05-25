@@ -1,3 +1,5 @@
+// Analog Clock
+
 const secondHand = document.querySelector('.second-hand');
 const minsHand = document.querySelector('.min-hand');
 const hourHand = document.querySelector('.hour-hand');
@@ -21,3 +23,28 @@ const hourHand = document.querySelector('.hour-hand');
   setInterval(setDate, 1000);
 
   setDate();
+
+  // Digital Clock
+
+  let digitalClock = () => {
+    let digitalDate = new Date();
+    let digitalHrs = digitalDate.getHours();
+    let digitalMins = digitalDate.getMinutes();
+    let digitalSecs = digitalDate.getSeconds();
+    let period = "AM";
+    if (digitalHrs == 0) {
+      digitalHrs = 12;
+    } else if (digitalHrs >= 12) {
+      digitalHhrs = digitalHrs - 12;
+      period = "PM";
+    }
+    digitalHhrs = digitalHhrs < 10 ? "0" + digitalHhrs : digitalHrs;
+    digitalMins = digitalMins < 10 ? "0" + digitalMins : digitalMins;
+    digitalSecs = digitalSecs < 10 ? "0" + digitalSecs : digitalSecs;
+  
+    let digitalTime = `${digitalHrs}:${digitalMins}:${digitalSecs}:${period}`;
+    document.getElementById("digital-clock").innerText = digitalTime;
+    setTimeout(digitalClock, 1000);
+  };
+  
+  digitalClock();
