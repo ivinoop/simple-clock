@@ -38,7 +38,7 @@ const hourHand = document.querySelector('.hour-hand');
       digitalHhrs = digitalHrs - 12;
       period = "PM";
     }
-    digitalHhrs = digitalHhrs < 10 ? "0" + digitalHhrs : digitalHrs;
+    digitalHrs = digitalHrs < 10 ? "0" + digitalHrs : digitalHrs;
     digitalMins = digitalMins < 10 ? "0" + digitalMins : digitalMins;
     digitalSecs = digitalSecs < 10 ? "0" + digitalSecs : digitalSecs;
   
